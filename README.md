@@ -1,5 +1,5 @@
 ## 🌍 Live Website
-https://YOUR-USERNAME.github.io/extinction-counter/
+https://nourteccgg.github.io/extinction-counter/
 
 ---
 
