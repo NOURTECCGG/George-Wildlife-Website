@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Extinction Counter</title>
+
+  <!-- Fit any device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #e6e6e6;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    .number {
+      font-size: clamp(60px, 12vw, 140px);
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .title {
+      font-size: clamp(18px, 4vw, 28px);
+      margin-top: 10px;
+    }
+
+    .line {
+      width: 60%;
+      height: 1px;
+      background: #333;
+      margin: 30px auto;
+    }
+
+    .text {
+      font-size: clamp(14px, 3vw, 18px);
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    .warning {
+      margin-top: 40px;
+      font-size: clamp(16px, 3.5vw, 22px);
+      color: #fff;
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    a {
+      color: #4da6ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ARROW */
+    .arrow {
+      margin-top: 60px;
+      font-size: 56px;       /* bigger */
+      color: #ffffff;       /* white */
+      animation: floatDown 2s infinite ease-in-out;
+    }
+
+    @keyframes floatDown {
+      0% {
+        transform: translateY(0);
+        opacity: 0.4;
+      }
+      50% {
+        transform: translateY(16px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 0.4;
+      }
+    }
+
+    /* LOST SECTION */
+    .lost-section {
+      padding: 100px 20px;
+    }
+
+    .lost-title {
+      font-size: clamp(24px, 5vw, 40px);
+      margin-bottom: 70px;
+      color: #fff;
+    }
+
+    .lost-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 90px;
+    }
+
+    .lost-item img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 6px;
+      filter: grayscale(100%);
+    }
+
+    .lost-item p {
+      margin-top: 20px;
+      font-size: clamp(14px, 3vw, 18px);
+      color: #aaa;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP COUNTER -->
+  <div class="container">
+
+    <div class="number" id="counter">0</div>
+    <div class="title">Estimated species lost this year</div>
+
+    <div class="line"></div>
+
+    <div class="text">
+      This counter is based on scientific estimates from
+      <a href="https://www.iucnredlist.org" target="_blank">IUCN</a>
+      and
+      <a href="https://www.ipbes.net" target="_blank">IPBES</a>
+      (UN science body).<br>
+      Extinction is a process, not a moment.
+    </div>
+
+    <div class="warning">
+      Nothing on this page will ever come back.
+    </div>
+
+    <!-- SCROLL ARROW -->
+    <div class="arrow">↓</div>
+
+    <div class="footer">
+      Estimated yearly extinction model • Updates automatically
+    </div>
+
+  </div>
+
+  <!-- LOST ANIMALS -->
+  <div class="lost-section">
+
+    <div class="lost-title">Already gone</div>
+
+    <div class="lost-item">
+      <img src="images/dodo.jpg">
+      <p>
+        Once common.<br>
+        Remembered only because someone drew it.
+      </p>
+    </div>
+
+    <div class="lost-item">
+      <img src="images/pigeon.jpg">
+      <p>
+        Billions existed.<br>
+        Silence came faster than anyone expected.
+      </p>
+    </div>
+
+    <div class="lost-item">
+      <img src="images/thylacine.jpg">
+      <p>
+        Declared gone.<br>
+        Long after it stopped being seen.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- COUNTER SCRIPT -->
+  <script>
+    const yearlyEstimate = 10000;
+
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 1);
+    const end = new Date(now.getFullYear(), 11, 31);
+
+    const progress = (now - start) / (end - start);
+    const finalCount = Math.floor(progress * yearlyEstimate);
+
+    let current = 0;
+    const counter = document.getElementById("counter");
+
+    const speed = 20;
+
+    const animation = setInterval(() => {
+      current += Math.ceil(finalCount / 100);
+      if (current >= finalCount) {
+        current = finalCount;
+        clearInterval(animation);
+      }
+      counter.textContent = current.toLocaleString();
+    }, speed);
+  </script>
+
+</body>
+</html>
