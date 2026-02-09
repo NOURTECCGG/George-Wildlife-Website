@@ -4,14 +4,17 @@
   <meta charset="UTF-8">
   <title>Extinction Counter</title>
 
-  <!-- Fit any device -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: #000;
-      color: #e6e6e6;
+      color: #e0e0e0;
       font-family: Arial, Helvetica, sans-serif;
       text-align: center;
     }
@@ -19,41 +22,45 @@
     .container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 80px 20px;
+      padding: 120px 20px 140px;
     }
 
     .number {
-      font-size: clamp(60px, 12vw, 140px);
-      font-weight: bold;
-      letter-spacing: 2px;
+      font-size: clamp(70px, 14vw, 150px);
+      font-weight: 700;
+      letter-spacing: 3px;
     }
 
     .title {
-      font-size: clamp(18px, 4vw, 28px);
-      margin-top: 10px;
+      font-size: clamp(18px, 4vw, 26px);
+      margin-top: 14px;
+      color: #bfbfbf;
     }
 
     .line {
-      width: 60%;
+      width: 55%;
       height: 1px;
-      background: #333;
-      margin: 30px auto;
+      background: #2a2a2a;
+      margin: 40px auto;
     }
 
     .text {
-      font-size: clamp(14px, 3vw, 18px);
-      color: #aaa;
-      line-height: 1.6;
+      font-size: clamp(15px, 3vw, 18px);
+      color: #9a9a9a;
+      line-height: 1.7;
+      max-width: 650px;
+      margin: 0 auto;
     }
 
     .warning {
-      margin-top: 40px;
-      font-size: clamp(16px, 3.5vw, 22px);
-      color: #fff;
+      margin-top: 60px;
+      font-size: clamp(18px, 4vw, 24px);
+      color: #ffffff;
+      font-weight: 500;
     }
 
     .footer {
-      margin-top: 50px;
+      margin-top: 70px;
       font-size: 13px;
       color: #666;
     }
@@ -61,74 +68,86 @@
     a {
       color: #4da6ff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    /* ARROW */
+    /* SCROLL ARROW */
     .arrow {
-      margin-top: 60px;
-      font-size: 56px;       /* bigger */
-      color: #ffffff;       /* white */
-      animation: floatDown 2s infinite ease-in-out;
+      margin-top: 70px;
+      font-size: 60px;
+      color: #ffffff;
+      animation: floatDown 2.2s infinite ease-in-out;
     }
 
     @keyframes floatDown {
-      0% {
-        transform: translateY(0);
-        opacity: 0.4;
-      }
-      50% {
-        transform: translateY(16px);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 0.4;
-      }
+      0% { transform: translateY(0); opacity: 0.35; }
+      50% { transform: translateY(18px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.35; }
     }
 
     /* LOST SECTION */
     .lost-section {
-      padding: 100px 20px;
+      padding: 140px 20px 80px;
+      background: #000;
     }
 
     .lost-title {
-      font-size: clamp(24px, 5vw, 40px);
-      margin-bottom: 70px;
-      color: #fff;
+      font-size: clamp(26px, 5vw, 42px);
+      margin-bottom: 90px;
+      color: #ffffff;
+      font-weight: 600;
     }
 
     .lost-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 90px;
+      margin-bottom: 110px;
     }
 
     .lost-item img {
       width: 100%;
-      max-width: 400px;
+      max-width: 380px;
       border-radius: 6px;
-      filter: grayscale(100%);
+      filter: grayscale(100%) contrast(1.05);
     }
 
     .lost-item p {
-      margin-top: 20px;
-      font-size: clamp(14px, 3vw, 18px);
-      color: #aaa;
-      max-width: 500px;
-      line-height: 1.6;
+      margin-top: 28px;
+      font-size: clamp(15px, 3vw, 18px);
+      color: #9a9a9a;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* JOIN US SECTION */
+    .join {
+      margin-top: 40px;
+      padding-bottom: 60px;
+    }
+
+    .join h3 {
+      font-size: clamp(20px, 4vw, 28px);
+      margin-bottom: 20px;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .join-links a {
+      display: inline-block;
+      margin: 0 20px;
+      font-size: clamp(18px, 4vw, 24px);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- TOP COUNTER -->
+  <!-- COUNTER -->
   <div class="container">
 
     <div class="number" id="counter">0</div>
@@ -149,7 +168,6 @@
       Nothing on this page will ever come back.
     </div>
 
-    <!-- SCROLL ARROW -->
     <div class="arrow">↓</div>
 
     <div class="footer">
@@ -187,6 +205,15 @@
       </p>
     </div>
 
+    <!-- JOIN US -->
+    <div class="join">
+      <h3>Join us on</h3>
+      <div class="join-links">
+        <a href="https://github.com/NOURTECCGG/extinction-counter" target="_blank">GitHub</a>
+        <a href="https://www.instagram.com/topics7052026/" target="_blank">Instagram</a>
+      </div>
+    </div>
+
   </div>
 
   <!-- COUNTER SCRIPT -->
@@ -203,16 +230,18 @@
     let current = 0;
     const counter = document.getElementById("counter");
 
-    const speed = 20;
+    setTimeout(() => {
+      const speed = 30;
 
-    const animation = setInterval(() => {
-      current += Math.ceil(finalCount / 100);
-      if (current >= finalCount) {
-        current = finalCount;
-        clearInterval(animation);
-      }
-      counter.textContent = current.toLocaleString();
-    }, speed);
+      const animation = setInterval(() => {
+        current += Math.ceil(finalCount / 120);
+        if (current >= finalCount) {
+          current = finalCount;
+          clearInterval(animation);
+        }
+        counter.textContent = current.toLocaleString();
+      }, speed);
+    }, 600);
   </script>
 
 </body>
