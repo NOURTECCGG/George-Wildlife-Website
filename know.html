@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>George Wildlife</title>
+  <title>I Didn’t Know – George Wildlife</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    html { scroll-behavior: smooth; }
-
 /* ================= RESET ================= */
 * {
   box-sizing: border-box;
@@ -213,103 +211,41 @@ body {
 }
 
 
-
-
   </style>
 </head>
 
 <body>
 
-  <!-- LOGO -->
   <div class="logo">
     <img src="logo.png" alt="George Wildlife">
   </div>
 
-  <!-- TOP / COUNTER -->
-  <div class="container">
+  <div class="content">
+    <p>
+      Most extinctions do not happen suddenly. They happen quietly.
+      Animals disappear when forests are cut down, oceans are emptied,
+      and land is taken faster than nature can recover.
+    </p>
 
-    <div class="number" id="counter">0</div>
-    <div class="title">Estimated species lost this year</div>
-    <div class="source-text">
-  Based on scientific estimates from
-  <a href="https://www.iucnredlist.org" target="_blank">IUCN</a>
-  and
-  <a href="https://www.ipbes.net" target="_blank">IPBES</a>.
-</div>
+    <p>
+      Species that depend on forests, coral reefs, rivers, and ice
+      are the most vulnerable. When habitats shrink, animals are
+      pushed closer to humans, closer to roads, and closer to extinction.
+    </p>
 
+    <p>
+      Humanity does not destroy wildlife with one action,
+      but with millions of small ones repeated every day.
+    </p>
 
-    <div class="buttons">
-      <a href="know.html">I didn’t know</a>
-      <a href="care.html">I will care</a>
-    </div>
-<div class="arrow-wrapper">
-  <a href="#already-gone" class="scroll-arrow">↓</a>
-</div>
+    <p>
+      Not knowing is common. Not caring is a choice.
+    </p>
 
-
+    <p>
+      <a href="index.html">← Back</a>
+    </p>
   </div>
-
-  <!-- LOST ANIMALS -->
-  <div class="lost-section" id="already-gone">
-
-    <div class="lost-title">Already gone</div>
-
-    <div class="lost-item">
-      <img src="images/dodo.jpg" alt="Dodo">
-      <p>
-        Once common.<br>
-        Remembered only because someone drew it.
-      </p>
-    </div>
-
-    <div class="lost-item">
-      <img src="images/pigeon.jpg" alt="Passenger pigeon">
-      <p>
-        Billions existed.<br>
-        Silence came faster than anyone expected.
-      </p>
-    </div>
-
-    <div class="lost-item">
-      <img src="images/thylacine.jpg" alt="Thylacine">
-      <p>
-        Declared gone.<br>
-        Long after it stopped being seen.
-      </p>
-    </div>
-
-    <!-- JOIN US -->
-    <div class="join">
-      <h3>Join us on</h3>
-      <div class="join-links">
-        <a href="https://github.com/NOURTECCGG/extinction-counter" target="_blank">GitHub</a>
-        <a href="https://www.instagram.com/topics7052026/" target="_blank">Instagram</a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- COUNTER SCRIPT -->
-  <script>
-    const yearlyEstimate = 10000;
-
-    const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 1);
-    const end = new Date(now.getFullYear(), 11, 31);
-
-    const progress = (now - start) / (end - start);
-    const finalCount = Math.floor(progress * yearlyEstimate);
-
-    let current = 0;
-    const counter = document.getElementById("counter");
-
-    setInterval(() => {
-      if (current < finalCount) {
-        current += Math.ceil(finalCount / 120);
-        counter.textContent = current.toLocaleString();
-      }
-    }, 30);
-  </script>
 
 </body>
 </html>
