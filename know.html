@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>I Didn’t Know – George Wildlife</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
 
   <style>
 /* ================= RESET ================= */
@@ -75,117 +77,6 @@ body {
   text-decoration: underline;
 }
 
-/* ================= BUTTONS ================= */
-.buttons {
-  margin-top: 72px;
-  display: flex;
-  justify-content: center;
-  gap: 36px;
-  flex-wrap: wrap;
-}
-
-.buttons a {
-  padding: 16px 40px;
-  border: 1px solid #3a3a3a;
-  color: #eaeaea;
-  text-decoration: none;
-  font-size: 17px;
-  font-weight: 500;
-  background: transparent;
-  transition: all 0.3s ease;
-}
-
-.buttons a:hover {
-  border-color: #1da1ff;
-  background: rgba(255, 255, 255, 0.04);
-  color: #ffffff;
-}
-
-/* ================= ARROW ================= */
-.arrow-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.scroll-arrow {
-  margin-top: 48px;
-  font-size: 64px;
-  color: #ffffff;
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-  animation: arrowMove 2.2s infinite ease-in-out;
-}
-
-@keyframes arrowMove {
-  0%   { transform: translateY(0);    opacity: 0.35; }
-  50%  { transform: translateY(18px); opacity: 1; }
-  100% { transform: translateY(0);    opacity: 0.35; }
-}
-
-/* ================= LOST SECTION ================= */
-.lost-section {
-  padding: 80px 24px 100px;
-}
-
-.lost-title {
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 500;
-  margin-bottom: 96px;
-}
-
-/* ================= LOST ITEMS ================= */
-.lost-item {
-  max-width: 1000px;
-  margin: 0 auto 120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.lost-item img {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 8px;
-  filter: grayscale(100%) contrast(1.05);
-}
-
-.lost-item p {
-  margin-top: 28px;
-  max-width: 520px;
-  font-size: 17px;
-  line-height: 1.7;
-  color: #b0b0b0;
-}
-
-/* ================= JOIN US ================= */
-.join {
-  margin-top: 40px;
-}
-
-.join h3 {
-  font-size: 26px;
-  font-weight: 500;
-  margin-bottom: 28px;
-}
-
-.join-links {
-  display: flex;
-  justify-content: center;
-  gap: 44px;
-  flex-wrap: wrap;
-}
-
-.join-links a {
-  font-size: 22px;
-  color: #1da1ff;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.join-links a:hover {
-  text-decoration: underline;
-}
 
 /* ================= TEXT PAGES ================= */
 .content {
@@ -210,6 +101,20 @@ body {
   text-decoration: underline;
 }
 
+.studio-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;          /* anchor below the logo image */
+  margin-top: -14px;  /* FORCE it upward into the logo space */
+
+  font-size: 20px;
+  font-family: 'Patrick Hand', cursive;
+  letter-spacing: 0.5px;
+  color: #9a9a9a;
+  text-transform: none;
+  white-space: nowrap;
+}
 
   </style>
 </head>
@@ -218,10 +123,11 @@ body {
 
   <div class="logo">
     <img src="logo.png" alt="George Wildlife">
+    <div class="studio-text">Studios</div>
   </div>
 
   <div class="content">
-    <p>
+  <p>
 Most extinctions do not happen with explosions, disasters, or headlines.
 They happen quietly, far away from cities, screens, and daily life.
 Animals disappear when forests are cut faster than they can regrow,
@@ -257,6 +163,9 @@ But extinction does not wait for awareness.
 <p>
 <a href="index.html">← Back</a>
 </p>
+
+
+<div id="last-updated" class="last-updated"></div>
 
   </div>
 

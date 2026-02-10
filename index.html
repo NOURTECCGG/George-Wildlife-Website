@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>George Wildlife</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet"> 
 
   <style>
     html { scroll-behavior: smooth; }
@@ -107,10 +108,10 @@ body {
 .arrow-wrapper {
   display: flex;
   justify-content: center;
+  margin-top: 48px;
 }
 
 .scroll-arrow {
-  margin-top: 48px;
   font-size: 64px;
   color: #ffffff;
   text-decoration: none;
@@ -118,6 +119,8 @@ body {
   display: inline-block;
   animation: arrowMove 2.2s infinite ease-in-out;
 }
+
+
 
 @keyframes arrowMove {
   0%   { transform: translateY(0);    opacity: 0.35; }
@@ -222,6 +225,60 @@ body {
   transform: translateX(-14px);
 }
 
+.why-text {
+  margin-top: 28px;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #b8b8b8;
+}
+
+.learn-link {
+  margin-top: 22px;
+  font-size: 15px;
+}
+
+.learn-link a {
+  color: #1da1ff;
+  text-decoration: none;
+}
+
+.learn-link a:hover {
+  text-decoration: underline;
+}
+
+
+.ethics-line {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #7a7a7a;
+}
+
+.studio-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;          /* anchor below the logo image */
+  margin-top: -14px;  /* FORCE it upward into the logo space */
+
+  font-size: 20px;
+  font-family: 'Patrick Hand', cursive;
+  letter-spacing: 0.5px;
+  color: #9a9a9a;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+
+
+.last-updated {
+  margin-top: 40px;
+  font-size: 13px;
+  color: #6f6f6f;
+}
+
 
   </style>
 </head>
@@ -231,7 +288,9 @@ body {
   <!-- LOGO -->
   <div class="logo">
     <img src="logo.png" alt="George Wildlife">
-  </div>
+  <div class="studio-text">Studios</div>
+</div>
+
 
   <!-- TOP / COUNTER -->
   <div class="container">
@@ -250,17 +309,29 @@ body {
     <a href="https://www.ipbes.net">IPBES</a>.
   </div>
 
+  <div class="why-text">
+  This project exists to remember what is already gone,
+  and to question what we are losing next.
+</div>
+
+
   <div class="buttons">
     <a href="know.html">I didn’t know</a>
     <a href="care.html">I will care</a>
   </div>
+  
+  <div class="learn-link">
+  <a href="https://www.ipbes.net/global-assessment" target="_blank">
+    Learn how this number is estimated
+  </a>
+</div>
 
+ 
 </div>
 
 <div class="arrow-wrapper">
-  <a href="#already-gone" class="scroll-arrow">↓</a>
+    <a href="#already-gone" class="scroll-arrow">↓</a>
 </div>
-
 
   </div>
 
@@ -300,6 +371,13 @@ body {
         <a href="https://github.com/NOURTECCGG/extinction-counter" target="_blank">GitHub</a>
         <a href="https://www.instagram.com/topics7052026/" target="_blank">Instagram</a>
       </div>
+
+<div class="ethics-line">
+  This project does not collect data, track users, or display ads.
+</div>
+
+<div id="last-updated" class="last-updated"></div>
+
     </div>
 
   </div>
@@ -325,6 +403,18 @@ body {
       }
     }, 30);
   </script>
+
+<script>
+  const last = new Date(document.lastModified);
+  const formatted =
+    last.getFullYear() + " : " +
+    String(last.getMonth() + 1).padStart(2, "0") + " : " +
+    String(last.getDate()).padStart(2, "0");
+
+  document.getElementById("last-updated").textContent =
+    "Last updated: " + formatted;
+</script>
+
 
 </body>
 </html>
