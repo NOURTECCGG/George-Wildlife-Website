@@ -282,6 +282,26 @@ body {
   color: #6f6f6f;
 }
 
+/* ===== MOBILE FIX: CENTER TOP SECTION ===== */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .container > * {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .container div[style*="translateX"] {
+    transform: translateX(0) !important;
+  }
+}
+
 
   </style>
 </head>
