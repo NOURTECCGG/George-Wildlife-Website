@@ -212,7 +212,15 @@ body {
   text-decoration: underline;
 }
 
+.top-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* THIS is the key */
+}
 
+.top-shift {
+  transform: translateX(-14px);
+}
 
 
   </style>
@@ -227,21 +235,28 @@ body {
 
   <!-- TOP / COUNTER -->
   <div class="container">
+    
+    <div class="top-shift">
 
-    <div class="number" id="counter">0</div>
-    <div class="title">Estimated species lost this year</div>
-    <div class="source-text">
-  Based on scientific estimates from
-  <a href="https://www.iucnredlist.org" target="_blank">IUCN</a>
-  and
-  <a href="https://www.ipbes.net" target="_blank">IPBES</a>.
+    <div style="transform: translateX(-16px);">
+
+  <div class="number" id="counter">0</div>
+  <div class="title">Estimated species lost this year</div>
+
+  <div class="source-text">
+    Based on scientific estimates from
+    <a href="https://www.iucnredlist.org">IUCN</a>
+    and
+    <a href="https://www.ipbes.net">IPBES</a>.
+  </div>
+
+  <div class="buttons">
+    <a href="know.html">I didn’t know</a>
+    <a href="care.html">I will care</a>
+  </div>
+
 </div>
 
-
-    <div class="buttons">
-      <a href="know.html">I didn’t know</a>
-      <a href="care.html">I will care</a>
-    </div>
 <div class="arrow-wrapper">
   <a href="#already-gone" class="scroll-arrow">↓</a>
 </div>
